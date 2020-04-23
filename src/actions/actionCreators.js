@@ -5,6 +5,5 @@ export function getUsers() {
 }
 export function updateUsers(data) {
     console.log('data ', data);
-
     return { type: 'UPDATE_USERS', payload: data };
 }

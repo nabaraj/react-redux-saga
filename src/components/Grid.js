@@ -9,7 +9,7 @@ class Grid extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentUserAddress: null
+            currentUserAddress: []
         }
         this.showAddress = this.showAddress.bind(this);
     }
@@ -30,12 +30,12 @@ class Grid extends Component {
         let { allUser } = this.props;
         return (
             <div className="row">
-                <div className="col userList">
+                <div className="col-6 userList">
                     {allUser.length > 0 ?
                         allUser.map((item, index) => <UserList data={item} key={item.name} showAddressOnClick={this.showAddress}></UserList>) : "Loading"}
                 </div>
-                <div className="col userAddress">
-                    {this.state.currentUserAddress && <UserAddress user={this.state.currentUserAddress[0]}></UserAddress>}
+                <div className="col-6 userAddress top-fixed">
+                    {this.state.currentUserAddress.length > 0 ? <UserAddress user={this.state.currentUserAddress[0]}></UserAddress> : (<p>Click on list item to view address</p>)}
                 </div>
             </div>
         )

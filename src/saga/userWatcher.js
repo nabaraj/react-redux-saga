@@ -24,7 +24,5 @@ function* loginEffectSaga() {
  * 'GET_USER'
  */
 export function* getUserWatcher() {
-    console.log('ttt');
-
     yield takeLatest('GET_USER', loginEffectSaga);
 }

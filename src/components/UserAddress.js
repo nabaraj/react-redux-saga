@@ -2,11 +2,11 @@ import React from 'react'
 
 export default function UserAddress({ user }) {
     return (
-        <div>
-            <p>{user.address.city},
+        <div className='address-block top-fixed'>
+            <div className="add-1">{user.address.city},
             {user.address.street},
-            {user.address.suite}</p>
-            <p>{user.address.zipcode}</p>
+            {user.address.suite}</div>
+            <div className="add-2">{user.address.zipcode}</div>
         </div>
     )
 }

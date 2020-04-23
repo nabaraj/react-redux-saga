@@ -4,11 +4,16 @@ export default function UserList(props) {
     let { name, age, sex, id } = props.data;
     return (
         <>
-            <div className="media" onClick={() => { props.showAddressOnClick(id) }}>
+            <div className="row" onClick={() => { props.showAddressOnClick(id) }}>
 
-                <div className="media-body">
-                    <h5 className="mt-0">{name}</h5>
-                    <p>{sex}.{age}</p>
+                <div className="col">
+                    <h5>{name}</h5>
+                </div>
+                <div className="col">
+                    <h5>{age}</h5>
+                </div>
+                <div className="col">
+                    <h5>{sex}</h5>
                 </div>
             </div>
 

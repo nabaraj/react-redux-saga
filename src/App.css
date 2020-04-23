@@ -28,6 +28,28 @@
   color: #61dafb;
 }
 
+.top-fixed {
+  position: relative;
+  top: 100px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-1 {
+  flex: 0;
+  margin: 0 auto;
+}
+
+.add-2{
+  flex: 2;
+  margin: 0 auto;
+}
+
+.userList {
+  border: 1px solid black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

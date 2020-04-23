@@ -6,8 +6,7 @@ function UserList(props) {
         return Math.floor(Math.random() * 50);
     }
     function randomuser(sex) {
-        let imagePath = "https://randomuser.me/api/portraits/thumb/women/12.jpg"
-
+        let imagePath = "";
         imagePath = `https://randomuser.me/api/portraits/thumb/${sex === 'M' ? "men" : "women"}/${getRandom()}.jpg`;
         console.log(imagePath);
         return imagePath;

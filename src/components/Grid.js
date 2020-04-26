@@ -9,7 +9,8 @@ class Grid extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentUserAddress: []
+            currentUserAddress: [],
+            currentId: ""
         }
         this.showAddress = this.showAddress.bind(this);
     }
@@ -23,18 +24,32 @@ class Grid extends Component {
         });
         console.log(currentUser);
         this.setState({
-            currentUserAddress: currentUser
+            currentUserAddress: currentUser,
+            currentId: id
         })
+    }
+    genarateTable(allUser) {
+        return <div className="table-responsive"><table className="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Profile Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Age</th>
+                </tr>
+            </thead>
+            {allUser.map((item, index) => <UserList data={item} key={item.name} showAddressOnClick={this.showAddress} currentId={this.state.currentId}></UserList>)}
+        </table></div>
     }
     render() {
         let { allUser } = this.props;
         return (
             <div className="row">
-                <div className="col-6 userList">
+                <div className="col-md-6 userList">
                     {allUser.length > 0 ?
-                        allUser.map((item, index) => <UserList data={item} key={item.name} showAddressOnClick={this.showAddress}></UserList>) : "Loading"}
+                        this.genarateTable(allUser) : "Loading"}
                 </div>
-                <div className="col-6 userAddress top-fixed">
+                <div className="col-md-6 userAddress offset-md-6 top-fixed">
                     {this.state.currentUserAddress.length > 0 ? <UserAddress user={this.state.currentUserAddress[0]}></UserAddress> : (<p>Click on list item to view address</p>)}
                 </div>
             </div>

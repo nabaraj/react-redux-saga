@@ -7,21 +7,26 @@ function UserList(props) {
     }
     function randomuser(sex) {
         let imagePath = "";
-        imagePath = `https://randomuser.me/api/portraits/thumb/${sex === 'M' ? "men" : "women"}/${getRandom()}.jpg`;
+        imagePath = `https://randomuser.me/api/portraits/thumb/${sex === 'M' ? "men" : "women"}/11.jpg`;
         console.log(imagePath);
         return imagePath;
     }
     return (
-        <>
-            <div className="media mt-3" onClick={() => { props.showAddressOnClick(id) }}>
+        <tr onClick={() => { props.showAddressOnClick(id) }} className={`${props.currentId === id ? "table-active" : ""}`}>
+            <td >
                 <img src={randomuser(sex)} className="mr-3" alt="" />
-                <div className="media-body">
-                    <h5 className="mt-0">{name}</h5>
-                    <p>{sex}.{age}</p>
-                </div>
-            </div>
 
-        </>
+            </td>
+            <td className="media-body">
+                <h5 className="mt-0">{name}</h5>
+
+            </td>
+            <td>
+                {sex}
+
+            </td>
+            <td>{age}</td>
+        </tr>
     )
 }
 export default memo(UserList);

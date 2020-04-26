@@ -3,5 +3,16 @@
 }
 .top-fixed{
   position: fixed;
-  right:0;
+}
+
+@media only screen and (max-width:768px){
+  body{
+    padding-top:120px;
+  }
+  .top-fixed{
+    height:120px;
+    background-color: #ffffff;
+    top:0;
+    overflow: auto;
+  }
 }
